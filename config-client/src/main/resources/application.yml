@@ -1,0 +1,20 @@
+server:
+  port: 8881
+spring:
+  application:
+    name: config-client #影响找的配置文件
+  cloud:
+    config:
+      label: master
+      #找的配置文件是config-client-dev
+      profile: dev
+      discovery:
+        #从配置中心读取文件
+        enabled: true
+        #配置中心的servieId，即服务名
+        service-id: config-server
+      #      uri: http://localhost:8888/
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8889/eureka/
